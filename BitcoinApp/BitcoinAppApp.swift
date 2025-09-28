@@ -8,10 +8,15 @@
 import SwiftUI
 
 @main
-struct BitcoinAppApp: App {
+struct BitcoinMonitorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                viewModel: TransactionViewModel(
+                    priceService: BitcoinPriceService(),
+                    webSocketService: WebSocketService()
+                )
+            )
         }
     }
 }
